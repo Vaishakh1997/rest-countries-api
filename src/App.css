@@ -53,6 +53,9 @@
   padding-bottom: 5%;
   cursor: pointer;
 }
+.country-layout h5{
+  font-size: 1.7vw;
+}
 
 .country-flag{
   height: 50%;
