@@ -74,7 +74,7 @@ class Details extends Component {
     render() { 
         return ( 
             <section className="details">
-                <button style={{border:'1px solid #D3D3D3'}} type="button" className="btn btn-light" onClick={this.goBack}>Back</button>
+                <button style={{border:'1px solid #D3D3D3'}} type="button" className="back-button" onClick={this.goBack}>Back</button>
 
                 {this.state.data.map(detail=>{
                     return(
@@ -105,7 +105,7 @@ class Details extends Component {
                             </div>
                             <div className="borders-right">
                                 {this.state.borderName.map(name=>{
-                                return <button key={name} style={{border:'1px solid #D3D3D3'}} type="button" className="btn btn-light border-button" onClick={()=>this.changeDetails(name)}>{name}</button>
+                                return <button key={name} type="button" className="border-button" onClick={()=>this.changeDetails(name)}>{name}</button>
                                 })}                                
                             </div>
                         </div>
