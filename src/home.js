@@ -8,65 +8,46 @@ const axios = require('axios');
 
 class Home extends Component {
     state = {
-        countryName: '',
-        regionName: '',
         data:[]
     }
 
     handleChangeSearch = (event) => {
-        this.setState({ countryName: event.target.value })
-        axios({
-            method: 'get',
-            url: `https://restcountries.eu/rest/v2/name/${event.target.value}`
-          })
-            .then(response=> {
-                console.log(response.data)
-                this.setState({data:response.data})
-            })
-            .catch(error=>{
-                console.log(error)
-            })
+        this.getFunctionCall(`https://restcountries.eu/rest/v2/name/${event.target.value}`)
     }
 
+    
     handleChangeFilter = (event) => {
-        this.setState({ regionName: event.target.value })
         let url;
         if(event.target.value === '')
             url = 'https://restcountries.eu/rest/v2/all'
         else
             url = `https://restcountries.eu/rest/v2/region/${event.target.value}`
 
+        this.getFunctionCall(url)
+    }
+
+    detailPage = (a) =>{
+        this.props.history.push(`/${a}`);
+    }
+    
+
+    getFunctionCall = (url) =>{
         axios({
             method: 'get',
             url: url
           })
             .then(response=> {
-                console.log(response.data)
                 this.setState({data:response.data})
             })
             .catch(error=>{
                 console.log(error)
             })
-    }
-
-    detailPage = (a) =>{
-        // return (<Redirect to='/detail' />)
-        this.props.history.push(`/${a}`);
     }
 
     componentDidMount=()=>{
-        axios({
-            method: 'get',
-            url: 'https://restcountries.eu/rest/v2/all'
-          })
-            .then(response=> {
-                console.log(response.data)
-                this.setState({data:response.data})
-            })
-            .catch(error=>{
-                console.log(error)
-            })
+        this.getFunctionCall('https://restcountries.eu/rest/v2/all')
     }
+
     render() {
         return (
                 <section className="home">
