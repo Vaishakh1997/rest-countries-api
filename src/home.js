@@ -42,15 +42,42 @@ class Home extends Component {
             .catch(error=>{
                 console.log(error)
             })
+            .then(re=>this.modeChange())
     }
 
     componentDidMount=()=>{
         this.getFunctionCall('https://restcountries.eu/rest/v2/all')
     }
+    modeChange = () => {
+        var color1, color2, color3
+
+        if (localStorage.getItem('mode') === 'Dark Mode') {
+            document.getElementById('mode').innerHTML = 'Light Mode'
+            color1 = '#2b3743'
+            color2 = '#212e37'
+            color3 = 'white'
+        }
+        else {
+            document.getElementById('mode').innerHTML = 'Dark Mode'
+            color1 = '#ffffff'
+            color2 = '#fafafa'
+            color3 = 'black'
+        }
+        document.getElementById('header').style.backgroundColor = color1
+        document.getElementById('header').style.color = color3
+
+        document.getElementById('home').style.backgroundColor = color2
+        document.getElementById('home').style.color = color3
+
+        var countryDetails = document.getElementsByClassName('country-details')
+        for (var i = 0; i < countryDetails.length; i++) {
+            countryDetails[i].style.backgroundColor = color1
+        }
+    }
 
     render() {
         return (
-                <section className="home">
+                <section className="home" id="home">
                     <div className="search-and-filter">
                         <Input style={{width:'30%'}} className="search" name="uname" placeholder='Search for a country..' type="text" value={this.state.uname} id="#uname" onChange={this.handleChangeSearch} />
                         <Input style={{width:'20%'}} className="filter" type="select" name="select" id="exampleSelect" onChange={this.handleChangeFilter}>
@@ -70,7 +97,7 @@ class Home extends Component {
                                 <div className="country-flag">
                                     <img style={{ width: '100%', height: '100%' }} src={country.flag} alt={country.numericCode}></img>
                                 </div>
-                                <div className="country-details">
+                                <div className="country-details" id="country-details">
                                     <h5>{country.name}</h5>
                                     <p><b>Population : </b>{country.population}</p>
                                     <p><b>Region : </b>{country.region}</p>
