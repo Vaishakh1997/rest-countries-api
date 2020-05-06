@@ -32,6 +32,7 @@ class Details extends Component {
             })
         })
         this.setState({borderName:b})
+        this.modeChange()
     }
     
     getLanguagesAndBorder = () =>{
@@ -64,17 +65,46 @@ class Details extends Component {
         })
             .then(response => {
                 this.setState({ data: response.data })
-               this.getLanguagesAndBorder();
+                this.getLanguagesAndBorder();
             })
             .catch(error => {
                 console.log(error)
             })
     }
+    
+    modeChange = () => {
+        var color1, color2, color3
+        if (localStorage.getItem('mode') === 'Dark Mode') {
+            document.getElementById('mode').innerHTML = 'Light Mode'
+            color1 = '#2b3743'
+            color2 = '#212e37'
+            color3 = 'white'
+            document.getElementById('details').style.backgroundColor = color2
+        }
+        else {
+            document.getElementById('mode').innerHTML = 'Dark Mode'
+            color1 = '#ffffff'
+            color2 = '#fafafa'
+            color3 = 'black'
+            document.getElementById('details').style.backgroundColor = color1
+        }
+        document.getElementById('header').style.backgroundColor = color1
+        document.getElementById('header').style.color = color3
 
+        document.getElementById('details').style.color = color3
+        document.getElementById('back-button').style.backgroundColor = color1
+        document.getElementById('back-button').style.color = color3
+
+        var borderButton = document.getElementsByClassName('border-button')
+        for (var i = 0; i < borderButton.length; i++) {
+            borderButton[i].style.backgroundColor = color1
+            borderButton[i].style.color = color3
+        }
+    }
     render() { 
         return ( 
-            <section className="details">
-                <button style={{border:'1px solid #D3D3D3'}} type="button" className="back-button" onClick={this.goBack}>Back</button>
+            <section className="details" id="details">
+                <button style={{border:'1px solid #D3D3D3'}} type="button" className="back-button" id="back-button" onClick={this.goBack}>Back</button>
 
                 {this.state.data.map(detail=>{
                     return(
