@@ -48,7 +48,9 @@
   padding-top: 3%;
   padding-bottom: 2%;
 }
-
+#exampleSelect{
+  width: -webkit-fill-available;
+}
 .search{
   width: 40%;
 }
@@ -208,7 +210,6 @@
   }
   #exampleSelect{
     font-size: 3vw;
-
   }
   .country-layout-list{
     flex-direction: column;
