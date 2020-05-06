@@ -79,8 +79,11 @@ class Home extends Component {
         return (
                 <section className="home" id="home">
                     <div className="search-and-filter">
-                        <Input style={{width:'30%'}} className="search" name="uname" placeholder='Search for a country..' type="text" value={this.state.uname} id="#uname" onChange={this.handleChangeSearch} />
-                        <Input style={{width:'20%'}} className="filter" type="select" name="select" id="exampleSelect" onChange={this.handleChangeFilter}>
+                        <div className="search">
+                        <Input name="uname" placeholder='Search for a country..' type="text" value={this.state.uname} id="uname" onChange={this.handleChangeSearch} />
+                        </div>
+                        <div className="filter">
+                            <Input className="filter" type="select" name="select" id="exampleSelect" onChange={this.handleChangeFilter}>
                             <option value="" >All</option>
                             <option value="Africa" >Africa</option>
                             <option value="Americas" >Americas</option>
@@ -88,6 +91,7 @@ class Home extends Component {
                             <option value="Europe" >Europe</option>
                             <option value="Oceania" >Oceania</option>
                         </Input>
+                        </div>
                     </div>
                     <div className="country-layout-list">
 
