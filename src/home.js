@@ -69,6 +69,12 @@ class Home extends Component {
         document.getElementById('home').style.backgroundColor = color2
         document.getElementById('home').style.color = color3
 
+        document.getElementById('uname').style.backgroundColor = color1
+        document.getElementById('uname').style.color = color3
+
+        document.getElementById('exampleSelect').style.backgroundColor = color1
+        document.getElementById('exampleSelect').style.color = color3
+
         var countryDetails = document.getElementsByClassName('country-details')
         for (var i = 0; i < countryDetails.length; i++) {
             countryDetails[i].style.backgroundColor = color1
