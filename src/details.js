@@ -55,7 +55,7 @@ class Details extends Component {
     
     changeDetails = (name) => {
         this.props.history.push(`/${name}`)
-        window.location.reload(true);
+        window.location = window.location
     }
 
     componentDidMount = () => {
