@@ -41,7 +41,7 @@ class Home extends Component {
           })
             .then(response=> {
                 this.setState({data:response.data})
-                // this.setState({loading: false})
+                this.setState({loading: false})
             })
             .catch(error=>{
                 console.log(error)
