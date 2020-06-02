@@ -14,6 +14,7 @@ class Home extends Component {
 
     handleChangeSearch = (event) => {
         this.getFunctionCall(`https://restcountries.eu/rest/v2/name/${event.target.value}`)
+        this.setState({loading:false})
     }
 
     

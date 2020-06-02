@@ -38,6 +38,7 @@
 .home{
   background-color: 	'';
   height: auto;
+  min-height: 50vw;
   padding-left: 5%;
   padding-right: 5%;
 }
