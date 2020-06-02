@@ -60,6 +60,7 @@
 }
 .country-layout-list{
   height: auto;
+  min-height: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -216,6 +217,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding-top: 5%;
+    min-height: 100vw;
   }
   .country-layout{
     width: 100%;
