@@ -61,7 +61,7 @@ class Header extends Component {
             <header className="header" id="header">
                 <h1>Where in the world?</h1>
                 <div className="dark">
-                    <img className="image" src="https://cdn3.iconfinder.com/data/icons/minimal-browser-kit-2/32/night-mode-512.png" alt="1"></img>
+                    {/* <img className="image" src="https://cdn3.iconfinder.com/data/icons/minimal-browser-kit-2/32/night-mode-512.png" alt="1"></img> */}
                     <h5 id="mode" onClick={this.modeChange}>Dark Mode</h5>
                 </div>
             </header>

@@ -8,7 +8,8 @@ const axios = require('axios');
 
 class Home extends Component {
     state = {
-        data:[]
+        data:[],
+        loading: false
     }
 
     handleChangeSearch = (event) => {
@@ -32,12 +33,14 @@ class Home extends Component {
     
 
     getFunctionCall = (url) =>{
+        this.setState({loading:true})
         axios({
             method: 'get',
             url: url
           })
             .then(response=> {
                 this.setState({data:response.data})
+                this.setState({loading: false})
             })
             .catch(error=>{
                 console.log(error)
@@ -99,6 +102,7 @@ class Home extends Component {
                         </Input>
                         </div>
                     </div>
+                    {this.state.loading === true? <div className="country-layout-list">Loading...</div> :
                     <div className="country-layout-list">
 
                         {this.state.data.map(country => {
@@ -116,7 +120,7 @@ class Home extends Component {
                             </div>)
                         })}
 
-                    </div>
+                    </div>}
                 </section>
         );
     }

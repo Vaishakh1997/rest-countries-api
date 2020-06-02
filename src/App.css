@@ -93,6 +93,7 @@
 
 .details{
   background-color: "";
+  min-height:50vw;
   height: auto;
   padding-left: 5%;
   padding-right: 5%;
