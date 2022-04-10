@@ -13,7 +13,7 @@ class Home extends Component {
     }
 
     handleChangeSearch = (event) => {
-        this.getFunctionCall(`https://restcountries.eu/rest/v2/name/${event.target.value}`)
+        this.getFunctionCall(`https://restcountries.com/v2/name/${event.target.value}`)
         this.setState({loading:false})
     }
 
@@ -21,9 +21,9 @@ class Home extends Component {
     handleChangeFilter = (event) => {
         let url;
         if(event.target.value === '')
-            url = 'https://restcountries.eu/rest/v2/all'
+            url = 'https://restcountries.com/v2/all'
         else
-            url = `https://restcountries.eu/rest/v2/region/${event.target.value}`
+            url = `https://restcountries.com/v2/region/${event.target.value}`
 
         this.getFunctionCall(url)
     }
@@ -50,7 +50,7 @@ class Home extends Component {
     }
 
     componentDidMount=()=>{
-        this.getFunctionCall('https://restcountries.eu/rest/v2/all')
+        this.getFunctionCall('https://restcountries.com/v2/all')
     }
     modeChange = () => {
         var color1, color2, color3

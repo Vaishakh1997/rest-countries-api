@@ -43,7 +43,7 @@ class Details extends Component {
 
         axios({
             method: 'get',
-            url: 'https://restcountries.eu/rest/v2/all'
+            url: 'https://restcountries.com/v2/all'
         })
             .then(response => {
                 this.boederNames(response.data);
@@ -61,7 +61,7 @@ class Details extends Component {
     componentDidMount = () => {
         axios({
             method: 'get',
-            url: `https://restcountries.eu/rest/v2/name/${this.state.countryName}?fullText=true`
+            url: `https://restcountries.com/v2/name/${this.state.countryName}?fullText=true`
         })
             .then(response => {
                 this.setState({ data: response.data })
@@ -86,7 +86,7 @@ class Details extends Component {
             color1 = '#ffffff'
             color2 = '#fafafa'
             color3 = 'black'
-            document.getElementById('details').style.backgroundColor = color1
+            document.getElementById('details').style.backgroundColor = 'rgb(247 247 247)'
         }
         document.getElementById('header').style.backgroundColor = color1
         document.getElementById('header').style.color = color3
