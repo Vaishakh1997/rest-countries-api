@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Input } from 'reactstrap';
 import { Redirect } from "react-router-dom";
-import './App.css'
+import '../assets/App.css'
+
 const axios = require('axios');
 
 class Home extends Component {

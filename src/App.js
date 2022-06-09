@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import './assets/App.css';
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Details from './details';
-import Home from './home';
-import Header from './header';
+import Details from './components/details';
+import Home from './components/home';
+import Header from './components/header';
 
 function App() {
   return (
